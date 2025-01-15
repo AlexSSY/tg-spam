@@ -12,5 +12,12 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "accounts#index"
 
-  resource :authentication
+  resource :session
+  resource :registration
+  resources :accounts do
+    collection do
+      get "authenticate", to: "accounts#authenticate", as: :authenticate
+      post "send/code", to: "accounts#send_code", as: :send_code
+    end
+  end
 end

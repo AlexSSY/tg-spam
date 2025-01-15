@@ -1,3 +1,7 @@
 <% if current_user.accounts.any? %>
+  <% current_user.accounts.each do |account| %>
+    <%= tag.p account.phone, class: "text-center" %>
+  <% end %>
+<% else %>
   <%= render partial: "accounts/partials/empty" %>
 <% end %>

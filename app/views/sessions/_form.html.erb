@@ -1,0 +1,8 @@
+<%= simple_form_for user, url: session_path do |f| %>
+
+  <%= f.input :username, placeholder: "RomanZavod-Vor" %>
+  <%= f.input :password, placeholder: "********" %>
+
+  <%= f.button :submit, "Submit" %>
+
+<% end %>

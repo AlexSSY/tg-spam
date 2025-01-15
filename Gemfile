@@ -56,3 +56,5 @@ gem "simple_form", "~> 5.3"
 gem "tailwindcss-rails", "~> 3.1"
 
 gem "view_component", "~> 3.21"
+
+gem "httparty", "~> 0.22.0"

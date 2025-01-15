@@ -9,13 +9,13 @@ class DividerComponent < ApplicationComponent
 
   def call
     if text.present?
-      content_tag :div, class: "flex px-3 items-center" do
+      content_tag :div, class: "flex px-3 items-center text-sm" do
         concat(line_element)
         concat(text_element)
         concat(line_element)
       end
     else
-      content_tag :div, nil, class: "border-b border-neutral-700 px-3"
+      content_tag :div, nil, class: "border-b border-neutral-700 mx-3"
     end
   end
 

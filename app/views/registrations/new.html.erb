@@ -1,0 +1,5 @@
+<%= component "screen", "Register" do %>
+  <%= render partial: "registrations/form", locals: { user: @user } %>
+  <%= component "divider", "Registered?" %>
+  <%= component "button", new_session_path, "Log In", variant: "secondary" %>
+<% end %>

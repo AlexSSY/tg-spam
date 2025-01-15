@@ -1,0 +1,6 @@
+<%= simple_form_for code_request, url: send_code_accounts_path do |f| %>
+
+  <%= f.input :phone, placeholder: "Enter phone" %>
+  <%= f.button :submit, "Submit" %>
+
+<% end %>

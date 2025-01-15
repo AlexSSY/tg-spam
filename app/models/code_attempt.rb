@@ -1,0 +1,2 @@
+class CodeAttempt < ApplicationRecord
+end
