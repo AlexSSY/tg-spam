@@ -53,7 +53,7 @@ end
 
 gem "simple_form", "~> 5.3"
 
-gem "tailwindcss-rails", "~> 3.1"
+gem "tailwindcss-rails", "~> 3.2"
 
 gem "view_component", "~> 3.21"
 
