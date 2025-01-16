@@ -55,8 +55,8 @@ SimpleForm.setup do |config|
     ## Inputs
     b.use(
       :input,
-      class: "w-full border border-neutral-700 rounded-xl bg-neutral-950 py-3 px-3 text-sm focus-visible:outline-none",
-      error_class: "w-full border border-red-700 rounded-xl bg-neutral-950 py-3 px-3 text-sm focus-visible:outline-none",
+      class: "w-full rounded-xl bg-indigo-100 py-4 px-3 text-xs focus-visible:outline-none",
+      error_class: "w-full rounded-xl bg-red-100 py-4 px-3 text-xs focus-visible:outline-none",
       valid_class: "is-valid"
     )
     # b.use :label_input
@@ -80,7 +80,7 @@ SimpleForm.setup do |config|
   config.boolean_style = :nested
 
   # Default class for buttons
-  config.button_class = "bg-neutral-200 block py-3 px-6 rounded-full text-sm font-medium text-neutral-800 w-full"
+  config.button_class = "bg-indigo-500 py-4 px-5 rounded-xl text-white text-xs font-bold cursor-pointer w-full"
 
   # Method used to tidy up errors. Specify any Rails Array method.
   # :first lists the first message for each field.
@@ -120,7 +120,7 @@ SimpleForm.setup do |config|
 
   # You can define the default class to be used on forms. Can be overridden
   # with `html: { :class }`. Defaulting to none.
-  config.default_form_class = "space-y-3"
+  config.default_form_class = "space-y-6"
 
   # You can define which elements should obtain additional classes
   # config.generate_additional_classes_for = [:wrapper, :label, :input]

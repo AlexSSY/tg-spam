@@ -1,8 +1,10 @@
 <%= simple_form_for user, url: registration_path do |f| %>
 
-  <%= f.input :username, placeholder: "RomanZavod-Vor" %>
-  <%= f.input :password, placeholder: "********" %>
-  <%= f.input :password_confirmation, placeholder: "********" %>
+  <%= f.input :username, placeholder: "UserName" %>
+  <%= f.input :password, placeholder: "Password" %>
+  <%= f.input :password_confirmation, placeholder: "Password Confirmation" %>
+
+  <div></div>
 
   <%= f.button :submit, "Submit" %>
 

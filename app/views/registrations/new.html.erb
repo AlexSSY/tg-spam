@@ -1,5 +1,13 @@
-<%= component "screen", "Register" do %>
-  <%= render partial: "registrations/form", locals: { user: @user } %>
-  <%= component "divider", "Registered?" %>
-  <%= component "button", new_session_path, "Log In", variant: "secondary" %>
-<% end %>
+<div class="mt-6">
+
+  <div class="space-y-12">
+    <div class="space-y-3">
+      <p class="text-base font-semibold text-center">Create an account</p>
+      <p class="text-xs text-center">Already have an account? <%= component "link", "Login", new_session_path %></p>
+    </div>
+
+    <%= render partial: "registrations/form", locals: { user: @user } %>
+  
+     <p class="text-center">Please read our <%= component "link", "instructions", "#" %></p>
+  </div>
+</div>

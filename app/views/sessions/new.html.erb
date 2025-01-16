@@ -1,15 +1,13 @@
-<div class="h-screen flex items-center justify-center">
-  <div class="w-full mx-6">
-    <div class="space-y-6">
-      <!-- Log in text -->
-      <div class="space-y-1">
-        <p class="text-2xl text-center">Log In</p>
-      </div>
-      
-      <%= render partial: "sessions/form", locals: { user: @user } %>
+<div class="mt-6">
 
-      <%= component "divider", "or" %>
-      <%= component "button", new_registration_path, "Register", variant: "secondary" %>
+  <div class="space-y-12">
+    <div class="space-y-3">
+      <p class="text-base font-semibold text-center">Logging in</p>
+      <p class="text-xs text-center">Do not have account? <%= component "link", "Register", new_registration_path %></p>
     </div>
+    
+    <%= render partial: "sessions/form", locals: { user: @user } %>
+
+    <p class="text-center">Please read our <%= component "link", "instructions", "#" %></p>
   </div>
 </div>

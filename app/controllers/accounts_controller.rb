@@ -43,7 +43,6 @@ class AccountsController < ApplicationController
   end
 
   def create
-    debugger
     phone_number = session[:phone_number]
     phone_code_hash = session[:phone_code_hash]
     code = attempt_code_params[:code]
@@ -60,12 +59,6 @@ class AccountsController < ApplicationController
   end
 
   private
-
-  def init_tg_client
-    telegram_api_hash = Rails.application.credentials.telegram.api_hash
-    telegram_app_id = Rails.application.credentials.telegram.app_id
-    TelegramAuthService.new(telegram_app_id, telegram_api_hash)
-  end
 
   def request_code_params
     params.require(:code_request).permit(:phone)
