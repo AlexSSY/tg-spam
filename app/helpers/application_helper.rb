@@ -3,7 +3,7 @@ module ApplicationHelper
     render "#{name}_component".classify.constantize.new(*args, **kwargs), &block
   end
 
-  def page_title(default = "Page")
+  def page_title(default = "")
     @page_title || default
   end
 end

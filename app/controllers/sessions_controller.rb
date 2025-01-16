@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
 
   def provide_errors
     @user = User.new
-    @user.errors.add(:username, "invalid")
-    @user.errors.add(:password, "invalid")
+    @user.errors.add(:username, "wrong username")
+    @user.errors.add(:password, "wrong password")
   end
 end

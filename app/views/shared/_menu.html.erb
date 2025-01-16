@@ -2,12 +2,12 @@
   This is full app (partial)  
 </-->
 
-<div class='<%= "absolute #{extra_classes}" %>' data-controller="menu">
-  <button class="w-12 h-12" data-action="click->menu#show">
+<div class='<%= "#{extra_classes}" %>' data-controller="menu">
+  <button class="" data-action="click->menu#show">
     <i class="fa-solid fa-bars text-xl"></i>
   </button>
   <div 
-    class="fixed items-center justify-center left-0 top-0 w-screen h-screen bg-neutral-950"
+    class="fixed items-center justify-center left-0 top-0 w-screen h-screen bg-white"
     data-menu-target="content"
     style="display: none"
   >
