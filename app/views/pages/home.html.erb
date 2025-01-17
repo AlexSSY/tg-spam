@@ -1,3 +1,9 @@
-<%= tag.p "Your Accounts", class: "text-center text-base font-semibold" %>
+<div class="space-y-6">
+  <%= tag.p "Your Accounts", class: "text-center text-base font-semibold" %>
 
-<%= render current_user.accounts %>
+  <% if !current_user.accounts.any? %>
+    <%= render current_user.accounts %>
+  <% else %>
+    <p class="text-center">You don't have any accounts, <%= component "link", "add", new_account_path %> a new account</p>
+  <% end %>
+</div>

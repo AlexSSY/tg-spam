@@ -2,12 +2,10 @@ class AccountsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @page_title = "Accounts"
   end
 
   def new
     # renders a phone inout form
-    @page_title = "Add new Account"
     @code_request = CodeRequest.new
   end
 
