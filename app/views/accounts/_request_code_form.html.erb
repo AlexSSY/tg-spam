@@ -1,6 +1,6 @@
-<%= simple_form_for code_request, url: send_code_accounts_path do |f| %>
+<%= simple_form_for code_request, url: send_code_accounts_path, data: { controller: "spinner", action: "turbo:submit-start->spinner#replaceText turbo:submit-end->spinner#restoreText" } do |f| %>
 
   <%= f.input :phone, placeholder: "Enter phone" %>
-  <%= f.button :submit, "Submit" %>
+  <%= f.button :button, "Submit", data: { spinner_target: "button" } %>
 
 <% end %>

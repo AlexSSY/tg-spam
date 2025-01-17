@@ -13,7 +13,7 @@ class AccountsController < ApplicationController
     @code_request = CodeRequest.new request_code_params do |record|
       record.user_id = current_user.id
     end
-
+    sleep 5
     if @code_request.save
       begin
         raw_result = Python.run_tg_py "send_code", @code_request.phone
