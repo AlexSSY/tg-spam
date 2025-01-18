@@ -40,3 +40,6 @@ session.txt
 
 /app/assets/builds/*
 !/app/assets/builds/.keep
+
+# Python stuff
+__pycache__

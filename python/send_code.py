@@ -7,9 +7,12 @@ from telethon.errors import (
 )
 from telethon.sync import TelegramClient
 from telethon.sessions import StringSession
+import asyncio
 
 
 def send_code(app_id, api_hash, phone_number):
+    loop = asyncio.new_event_loop() # create an event loop for TelegramClient
+    asyncio.set_event_loop(loop)
     client = TelegramClient(StringSession(), int(app_id), api_hash)
 
     try:
@@ -18,7 +21,7 @@ def send_code(app_id, api_hash, phone_number):
 
         return {
             "success": True,
-            "session": client.session.save(), 
+            "session": client.session.save(),
             "phone_code_hash": sent_code.phone_code_hash
         }
     except ValueError as e:
