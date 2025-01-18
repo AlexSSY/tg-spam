@@ -5,8 +5,6 @@ from telethon.errors import (
     SessionPasswordNeededError,
     PhoneCodeInvalidError,
     PhoneCodeExpiredError,
-    PhoneNumberInvalidError,
-    PhoneNumberUnoccupiedError,
     FloodWaitError
 )
 
@@ -24,7 +22,35 @@ def verify_code(app_id, api_hash, phone_number, phone_code_hash, code, session):
             "success": True,
             "session": client.session.save()
         }
+    except SessionPasswordNeededError as e:
+        return {
+            "success": False,
+            "error": "password_needed",
+            "detail": e.message
+        }
+    except PhoneCodeInvalidError as e:
+        return {
+            "success": False,
+            "error": "code_invalid",
+            "detail": e.message
+        }
+    except PhoneCodeExpiredError as e:
+        return {
+            "success": False,
+            "error": "code_expired",
+            "detail": e.message
+        }
+    except FloodWaitError as e:
+        return {
+            "success": False,
+            "error": "flood_wait",
+            "detail": e.seconds
+        }
     except Exception as e:
-        print(f"Error: {e}")
+        return {
+            "success": False,
+            "error": "unknown",
+            "detail": e.__str__()
+        }
     finally:
         client.disconnect()
