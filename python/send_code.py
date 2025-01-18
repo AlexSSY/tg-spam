@@ -4,10 +4,7 @@ from telethon.sync import TelegramClient
 from telethon.sessions import StringSession
 
 
-def main():
-    argv = sys.argv[1:]
-    app_id, api_hash, phone_number = argv
-
+def send_code(app_id, api_hash, phone_number):
     client = TelegramClient(StringSession(), int(app_id), api_hash)
 
     try:
@@ -24,6 +21,12 @@ def main():
         print(f"Error: {e}")
     finally:
         client.disconnect()
+
+
+
+def main():
+    argv = sys.argv[1:]
+    send_code(*argv)
 
 
 if __name__ == "__main__":
