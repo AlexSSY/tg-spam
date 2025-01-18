@@ -67,5 +67,11 @@ def send_code(app_id, api_hash, phone_number):
             "error": "two_factor",
             "detail": e.message
         }
+    except Exception as e:
+        return {
+            "success": False,
+            "error": "unknown",
+            "detail": e.__str__()
+        }
     finally:
         client.disconnect()
