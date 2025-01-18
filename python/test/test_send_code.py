@@ -26,7 +26,7 @@ def test_invalid_phone():
     payload = {
         "api_hash": os.getenv("API_HASH"),
         "app_id": os.getenv("APP_ID"),
-        "phone_number": "spagetti"
+        "phone_number": "100500"
     }
 
     response = requests.post("http://localhost:5000/send/code", json=payload)
