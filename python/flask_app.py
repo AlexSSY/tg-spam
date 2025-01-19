@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify, make_response
 from send_code import send_code as t_send_code
 from verify_code import verify_code as t_verify_code
+from chats import chats as t_chats
 
 
 app = Flask(__name__)
@@ -34,6 +35,17 @@ def verify_code():
     result = t_verify_code(app_id, api_hash, phone_number, phone_code_hash, code, session)
 
     # Return a JSON response
+    return make_response(jsonify(result), 200 if result["success"] else 401) 
+
+
+@app.route("/chats")
+def chats():
+    data = request.get_json()
+    api_hash = data.get("api_hash")
+    app_id = data.get("app_id")
+    session = data.get("session")
+
+    result = t_chats(app_id, api_hash, session)
     return make_response(jsonify(result), 200 if result["success"] else 401) 
 
 
