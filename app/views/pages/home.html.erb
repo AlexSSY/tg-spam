@@ -1,8 +1,35 @@
 <div class="space-y-6">
   <%= tag.p "Your Accounts", class: "text-center text-base font-semibold" %>
 
-  <% if !current_user.accounts.any? %>
-    <%= render current_user.accounts %>
+  <% if current_user.accounts.any? %>
+    <div class="my-3 text-center">
+      <%= component "link", "add account", new_account_path %>
+    </div>
+    
+    <div class="relative">
+      <input type="text" class="w-full rounded-xl bg-indigo-100 py-4 px-3 pl-10 text-xs focus-visible:outline-none" placeholder="Search ...">
+      <i class="absolute left-3 translate-y-[14px] text-xl text-black/30 fa-solid fa-magnifying-glass"></i>
+    </div>
+
+    <% current_user.accounts.each do |account| %>
+      <div class="border rounded-xl p-4">
+
+        <!-- head -->
+        <div class="flex justify-between items-center">
+          <%= link_to account_path(account), class: "flex items-center space-x-2" do %>
+            <%= tag.div "", class: 'flex-none w-8 h-8 rounded-full bg-indigo-100' %>
+            <div>
+              <%= tag.p account.full_name, class: "font-bold" %>
+              <%= tag.p account.phone %>
+            </div>
+          <% end %>
+          <%= link_to account_path(account), class: "flex-none" do %>
+            <i class="fa-solid fa-ellipsis-vertical text-base"></i>
+          <% end %>
+        </div>
+
+      </div>
+    <% end %>
   <% else %>
     <p class="text-center">You don't have any accounts, <%= component "link", "add", new_account_path %> a new account</p>
   <% end %>

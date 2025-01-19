@@ -1,5 +1,6 @@
 class CodeRequest < ApplicationRecord
   validates_presence_of :phone
+  normalizes :phone, with: ->(phone) { (phone.to_i).abs.to_s }
   validate :ensure_account_is_free
 
   private

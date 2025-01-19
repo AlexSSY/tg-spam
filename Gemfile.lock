@@ -332,6 +332,7 @@ DEPENDENCIES
   image_processing (~> 1.2)
   importmap-rails
   jbuilder
+  mini_magick (~> 4.13)
   mysql2 (~> 0.5)
   puma (>= 5.0)
   pundit (~> 2.4)
