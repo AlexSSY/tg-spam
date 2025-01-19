@@ -1,3 +1,11 @@
-<%= component "screen", "Request code" do %>
-  <%= render partial: "form", locals: { code_attempt: @code_attempt } %>
-<% end %>
+<div class="mt-6">
+
+  <div class="space-y-12">
+    <div class="space-y-3">
+      <p class="text-base font-semibold text-center">Requested Code</p>
+      <p class="text-xs text-center">Phone code for authenticate your Telegram Account</p>
+    </div>
+    <%= render partial: "form", locals: { code_attempt: @code_attempt } %>
+    <p class="text-center">Please read our <%= component "link", "instructions", "#" %></p>
+  </div>
+</div>

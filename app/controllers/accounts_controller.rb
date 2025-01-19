@@ -63,22 +63,48 @@ class AccountsController < ApplicationController
   end
 
   def create
-    phone_number = session[:phone_number]
-    phone_code_hash = session[:phone_code_hash]
-    code = attempt_code_params[:code]
-    session_string = session[:session_string]
+    request_body = body_with_credentials({
+      phone_number: session[:phone_number],
+      phone_code_hash: session[:phone_code_hash],
+      code: attempt_code_params[:code],
+      session: session[:session_string]
+    })
 
-    begin
-      result = Python.run_tg_py "verify_code", phone_number, phone_code_hash, code, session_string
-      Account.create user_id: current_user.id, phone: phone_number, session_data: result
-    rescue Exception => e
+    response = HTTParty.post(
+      url + "/verify/code",
+      headers: { "Content-Type" => "application/json" },
+      body: request_body.to_json
+    )
+
+    json_response = JSON.parse response.body
+
+    if response.success?
+      Account.create(user_id: current_user.id,
+        phone: request_body[:phone_number],
+        session_data: json_response["session"]
+      )
+      redirect_to accounts_path
+    else
       @code_attempt = CodeAttempt.new
-      @code_attempt.errors.add("code", e)
+
+      case json_response["error"]
+      when "code_invalid"
+        @code_attempt.errors.add(:code, "code is not valid")
+      else
+        @code_attempt.errors.add(:code, "unexpected error")
+      end
+
       render :authenticate, status: :unprocessable_entity
     end
   end
 
   def destroy
+    if @account.present?
+      @account.destroy
+      redirect_to accounts_path
+    else
+      redirect_to accounts_path
+    end
   end
 
   private

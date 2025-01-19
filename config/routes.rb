@@ -14,10 +14,13 @@ Rails.application.routes.draw do
 
   resource :session
   resource :registration
+
   resources :accounts do
     collection do
       get "authenticate", to: "accounts#authenticate", as: :authenticate
       post "send/code", to: "accounts#send_code", as: :send_code
     end
   end
+
+  resources :messages
 end

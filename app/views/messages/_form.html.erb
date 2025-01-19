@@ -1,0 +1,8 @@
+<% method = message.new_record? ? :post : :patch %>
+<% path = message.new_record? ? messages_path : message_path(message) %>
+<%= simple_form_for message, url: path, method: method do |f| %>
+  <%= f.input :caption %>
+  <%= f.input :image %>
+
+  <%= f.button :button, "Submit" %>
+<% end %>

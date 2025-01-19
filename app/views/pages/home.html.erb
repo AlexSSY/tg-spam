@@ -23,8 +23,8 @@
               <%= tag.p account.phone %>
             </div>
           <% end %>
-          <%= link_to account_path(account), class: "flex-none" do %>
-            <i class="fa-solid fa-ellipsis-vertical text-base"></i>
+          <%= link_to account_path(account), class: "flex-none w-4 text-center", data: { turbo_confirm: "Are you sure?", turbo_method: :delete } do %>
+            <i class="fa-solid fa-trash text-base text-rose-500"></i>
           <% end %>
         </div>
 

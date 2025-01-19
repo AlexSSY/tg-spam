@@ -1,0 +1,36 @@
+<div class="space-y-6">
+  <%= tag.p "Your Messages", class: "text-center text-base font-semibold" %>
+
+  <% if @messages.any? %>
+    <div class="my-3 text-center">
+      <%= component "link", "add message", new_message_path %>
+    </div>
+    
+    <div class="relative">
+      <input type="text" class="w-full rounded-xl bg-indigo-100 py-4 px-3 pl-10 text-xs focus-visible:outline-none" placeholder="Search ...">
+      <i class="absolute left-3 translate-y-[14px] text-xl text-black/30 fa-solid fa-magnifying-glass"></i>
+    </div>
+
+    <% @messages.each do |message| %>
+      <div class="border rounded-xl p-4">
+
+        <!-- head -->
+        <div class="flex justify-between items-center">
+          <%= link_to message_path(message), class: "flex items-center space-x-2" do %>
+            <%= image_tag message.image.variant(resize_to_fill: [32, 32]) %>
+            <div>
+              <%= tag.p message.caption, class: "font-bold" %>
+              <%= tag.p time_ago_in_words(message.created_at) %>
+            </div>
+          <% end %>
+          <%= link_to message_path(message), class: "flex-none w-4 text-center", data: { turbo_confirm: "Are you sure?", turbo_method: :delete } do %>
+            <i class="fa-solid fa-trash text-base text-rose-500"></i>
+          <% end %>
+        </div>
+
+      </div>
+    <% end %>
+  <% else %>
+    <p class="text-center">You don't have any messages, <%= component "link", "add", new_message_path %> a new message</p>
+  <% end %>
+</div>
