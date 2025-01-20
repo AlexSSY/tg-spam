@@ -1,16 +1,4 @@
 <div class="space-y-6">
   <%= tag.p "Spam Panel", class: "text-center text-sm font-bold" %>
-  <% if @message.present? %>
-    <div class="p-2 bg-emerald-500">
-      <span class="text-xs font-semibold">Message:</span>
-      <div>
-        <%= @message.caption %>
-      </div>
-    </div>
-  <% else%>
-    <%= link_to "Select a Message", messages_path, class: "block text-center py-4 px-5 text-xs rounded-xl w-full border border-black/30" %>
-  <% end %>
-  <button class="w-32 h-32 ring-2 ring-indigo-500 mx-auto rounded-full flex items-center justify-center">
-    <span class="font-semibold">Tap to Start</span>
-  </button>
+  <%= render partial: "spams/form", locals: { spam: Spam.new, messages: @messages } %>
 </div>

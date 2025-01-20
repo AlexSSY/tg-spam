@@ -12,6 +12,18 @@ class SpamsController < ApplicationController
 
     if @spam.save
       # bg-job started here
+    else
+      render(
+        turbo_stream: turbo_stream.replace(
+          "spam_form",
+          partial: "spams/form",
+          locals: {
+            spam: @spam,
+            messages: current_user.messages
+          }
+        ),
+        status: :unprocessable_entity
+      )
     end
   end
 

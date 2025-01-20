@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   before_action :set_message, only: %i[ home ]
 
   def home
+    @messages = current_user.messages
   end
 
   private
