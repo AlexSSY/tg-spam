@@ -6,48 +6,8 @@
         data-action="click->dropdown#open">
         Select Message
       </div>
-      <!-- Full-Screen Dropdown Modal -->
-      <div 
-        data-dropdown-target="modal" 
-        class="fixed inset-0 z-50 bg-white hidden overflow-y-auto">
-        <div class="p-4 space-y-3">
-          <div class="flex justify-between w-full">
-            <span class="font-semibold text-sm">Select a Message</span>
-            <!-- Close Button -->
-            <button 
-              class="text-blue-500 underline text-center"
-              data-action="click->dropdown#close">
-              Cancel
-            </button>
-          </div>
-
-          <!-- List Items -->
-          <ul class="space-y-4">
-            <% messages.each do |message| %>
-              <li 
-                class="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-100"
-                data-action="click->dropdown#select"
-                data-item-id="<%= message.id %>"
-                data-item-text="<%= message.caption %>">
-                <img src="<%= url_for(message.image) %>" alt="<%= message.caption %>" class="w-12 h-8 mr-4">
-                <span class=""><%= message.caption %></span>
-              </li>
-            <% end %>
-          </ul>
-
-          <%= link_to "Write new Message", new_message_path, class: simple_form_button_class("block text-center") %>
-
-          <!-- Hidden Input (Optional) -->
-          <%= f.input :message_id, :as => :hidden, input_html: { data: { dropdown_target: "hiddenInput" } } %>
-        </div>
-      </div>
-      <%= button_tag class: "w-32 h-32 ring-2 ring-indigo-500 mx-auto rounded-full flex items-center justify-center" do %>
-        <% if spam.errors[:message].any? %>
-          <span class="font-semibold text-rose-500">please select message</span>
-        <% else %>
-          <span class="font-semibold">Tap to Start</span>
-        <% end %>
-      <% end %>
+      <%= render partial: "spams/dropdown", locals: { messages: messages, f: f } %>
+      <%= render partial: "spams/button", locals: { spam: spam } %>
     <% end %>
   </div>
 <% end %>

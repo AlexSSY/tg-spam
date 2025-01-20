@@ -1,0 +1,8 @@
+<%= button_tag class: "w-32 h-32 ring-2 ring-indigo-500 mx-auto rounded-full flex items-center justify-center" do %>
+  <% if spam.message_id %>
+  <% if spam.errors[:message].any? %>
+    <span class="font-semibold text-rose-500">please select message</span>
+  <% else %>
+    <span class="font-semibold">Tap to Start</span>
+  <% end %>
+<% end %>
