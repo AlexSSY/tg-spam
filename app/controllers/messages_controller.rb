@@ -7,6 +7,7 @@ class MessagesController < ApplicationController
   end
 
   def show
+    @spam = Spam.new message_id: @message.id
   end
 
   def new

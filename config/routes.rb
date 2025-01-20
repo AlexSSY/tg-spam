@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "pages#home"
 
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
+
   resource :session
   resource :registration
 
@@ -23,4 +26,5 @@ Rails.application.routes.draw do
   end
 
   resources :messages
+  resources :spams
 end
