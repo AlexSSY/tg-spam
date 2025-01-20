@@ -6,6 +6,14 @@ class MessagePolicy < ApplicationPolicy
     @message = message
   end
 
+  def index?
+    message.user_id == user.id
+  end
+
+  def show?
+    message.user_id == user.id
+  end
+
   def delete?
     # Удалять сообщение спама может только пользователь который им владеет
     message.user_id == user.id

@@ -11,9 +11,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "pages#home"
+  get "/:message_id", to: "pages#home", as: :home_with_message, constraints: { message_id: /\d+/ }
 
-  require 'sidekiq/web'
-  mount Sidekiq::Web => '/sidekiq'
+  require "sidekiq/web"
+  mount Sidekiq::Web => "/sidekiq"
 
   resource :session
   resource :registration
