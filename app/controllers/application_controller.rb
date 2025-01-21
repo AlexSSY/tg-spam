@@ -19,6 +19,10 @@ class ApplicationController < ActionController::Base
     redirect_to new_session_path, alert: "Please login first." unless user_signed_in?
   end
 
+  def ensure_unauthorized!
+    redirect_to root_path if user_signed_in?
+  end
+
   def user_signed_in?
     current_user.present?
   end

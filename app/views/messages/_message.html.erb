@@ -2,8 +2,8 @@
 
   <!-- head -->
   <div class="flex justify-between items-center">
-    <%= link_to home_with_message_path(message), class: "flex items-center space-x-2" do %>
-      <%= image_tag message.image.variant(resize_to_fill: [32, 32]) %>
+    <%= link_to start_spam_path(message), class: "flex items-center space-x-2" do %>
+      <%= image_tag message.image.variant(resize_to_limit: [32, 32]) %>
       <div>
         <%= tag.p message.caption, class: "font-bold" %>
         <%= tag.p time_ago_in_words(message.created_at) %>

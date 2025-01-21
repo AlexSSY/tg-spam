@@ -1,32 +1,26 @@
-<!-- >
-  This is full app (partial)  
-</-->
-
-<div class='<%= "#{extra_classes}" %>' data-controller="menu">
-  <button class="" data-action="click->menu#show">
+<div class="flex justify-end py-4" data-controller="menu">
+  <button data-action="click->menu#show">
     <i class="fa-solid fa-bars text-xl"></i>
   </button>
   <div 
-    class="fixed items-center justify-center left-0 top-0 w-screen h-screen bg-white"
+    class="fixed left-0 top-0 w-screen h-screen bg-white px-6 pt-4 hidden"
     data-menu-target="content"
-    style="display: none"
   >
-
-    <div class="flex-grow">
-      <ul class="mx-8">
-        <li class="text-center py-2 border-y border-neutral-700">
-          <%= component "nav", root_path, "Home" %>
-        </li class="mx-8">
-        <li class="text-center py-2 border-b border-neutral-700">
-          <%= component "nav", messages_path, "Messages" %>
-        </li class="mx-8">
-        <li class="text-center py-2 border-b border-neutral-700">
-          <%= component "nav", "#", "Nav" %>
-        </li>
-      </ul>
+    <div class="flex justify-end">
+      <button data-action="click->menu#hide">
+        <i class="fa-solid fa-xmark text-2xl text-black/60"></i>
+      </button>
     </div>
-    <button class="absolute top-0 right-0 w-12 h-12" data-action="click->menu#hide">
-      <i class="fa-solid fa-xmark text-2xl"></i>
-    </button>
+    <ul class="mx-8">
+      <li class="text-center py-2">
+        <%= component "nav", root_path, "Home" %>
+      </li class="mx-8">
+      <li class="text-center py-2">
+        <%= component "nav", messages_path, "Messages" %>
+      </li class="mx-8">
+      <li class="text-center py-2">
+        <%= component "nav", "#", "Nav" %>
+      </li>
+    </ul>
   </div>
 </div>

@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_action :ensure_unauthorized!, only: %i[ new create ]
+
   def new
     @user = User.new
   end

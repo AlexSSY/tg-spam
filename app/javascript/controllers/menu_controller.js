@@ -9,10 +9,10 @@ export default class extends Controller {
   }
 
   show() {
-    this.contentTarget.style.display = "flex"
+    this.contentTarget.classList.remove("hidden")
   }
 
   hide() {
-    this.contentTarget.style.display = "none"
+    this.contentTarget.classList.add("hidden")
   }
 }

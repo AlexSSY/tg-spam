@@ -1,6 +1,6 @@
 <% method = message.new_record? ? :post : :patch %>
 <% path = message.new_record? ? messages_path : message_path(message) %>
-<%= simple_form_for message, url: path, method: method do |f| %>
+<%= simple_form_for message, url: (local_assigns[:force_path] || path), method: method do |f| %>
   <%= f.input :caption %>
   <%= f.input :image %>
 

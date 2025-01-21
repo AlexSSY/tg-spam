@@ -24,7 +24,8 @@
   </head>
 
   <body>
-    <div class="px-6 pt-8 min-h-screen bg-white text-black text-xs">
+    <div class="px-6 min-h-screen bg-white text-black text-xs">
+      <%= render partial: "shared/menu" if user_signed_in? %>
       <%= yield %>
     </div>
   </body>

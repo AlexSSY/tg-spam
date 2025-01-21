@@ -45,3 +45,4 @@ session.txt
 __pycache__
 python/.vscode/settings.json
 .vscode/settings.json
+dump.rdb

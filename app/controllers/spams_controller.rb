@@ -1,8 +1,12 @@
 class SpamsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_message, only: %i[ start ]
 
   def new
     @spam = Spam.new
+  end
+
+  def start
   end
 
   def create
@@ -31,5 +35,9 @@ class SpamsController < ApplicationController
 
   def spam_params
     params.require(:spam).permit(:message_id)
+  end
+
+  def set_message
+    @message = current_user.messages.find_by id: params[:id]
   end
 end

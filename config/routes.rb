@@ -26,6 +26,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :messages
-  resources :spams
+  resources :messages do
+    get "select", to: "messages#select", as: :select, on: :collection
+    post "select", to: "messages#select_create", as: :select_create, on: :collection
+  end
+  resources :spams do
+    get "start", to: "spams#start", as: :start, on: :member
+  end
 end

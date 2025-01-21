@@ -1,4 +1,6 @@
 class RegistrationsController < ApplicationController
+  before_action :ensure_unauthorized!
+
   def new
     @user = User.new
   end

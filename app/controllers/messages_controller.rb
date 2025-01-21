@@ -14,6 +14,22 @@ class MessagesController < ApplicationController
     @message = Message.new
   end
 
+  def select
+    @message = Message.new
+  end
+
+  def select_create
+    @message = Message.new message_params do |msg|
+      msg.user_id = current_user.id
+    end
+
+    if @message.save
+      redirect_to start_spam_path(@message)
+    else
+      render :select, status: :unprocessable_entity
+    end
+  end
+
   def create
     @message = Message.new message_params do |msg|
       msg.user_id = current_user.id
