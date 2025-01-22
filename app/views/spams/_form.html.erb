@@ -1,6 +1,4 @@
-<%= turbo_frame_tag "spam_form" do %>
-  <%= simple_form_for spam, url: (local_assigns[:path] || spams_path) do |f| %>
-    <%= f.input :message_id, :as => :hidden, input_html: { value: @message.id } %>
-    <%= render partial: "spams/form_button" %>
-  <% end %>
+<%= simple_form_for spam, url: (local_assigns[:path] || spams_path) do |f| %>
+  <%= f.input :message_id, :as => :hidden, input_html: { value: @message.id } %>
+  <%= render partial: "spams/form_button" %>
 <% end %>

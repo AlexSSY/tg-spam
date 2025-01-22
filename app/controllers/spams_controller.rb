@@ -22,7 +22,8 @@ class SpamsController < ApplicationController
     if @spam.save
       # bg-job started here
       SpamJob.perform_later @spam
-      redirect_to status_spams_path
+      # redirect_to status_spams_path
+      render :status
     else
     end
   end
