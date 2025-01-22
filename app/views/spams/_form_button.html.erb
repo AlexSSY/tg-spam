@@ -1,0 +1,6 @@
+<% extra_classes = local_assigns[:started] ? "ring-amber-500" : "ring-indigo-500" %>
+<%= turbo_frame_tag "spam_form_button" do %>
+  <%= button_tag class: "#{extra_classes} w-32 h-32 ring-2 rounded-full flex items-center justify-center mx-auto".strip do %>
+    <% tag.span (local_assigns[:started] ? "Proceed" : "Start"), class: "font-semibold" %>
+  <% end %>
+<% end %>

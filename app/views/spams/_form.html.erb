@@ -1,13 +1,6 @@
 <%= turbo_frame_tag "spam_form" do %>
-  <div data-controller="dropdown">
-    <%= simple_form_for spam, url: spams_path do |f| %>
-      <div 
-        class="<%= simple_form_button_class 'text-center' %>"
-        data-action="click->dropdown#open">
-        Select Message
-      </div>
-      <%= render partial: "spams/dropdown", locals: { messages: messages, f: f } %>
-      <%= render partial: "spams/button", locals: { spam: spam } %>
-    <% end %>
-  </div>
+  <%= simple_form_for spam, url: (local_assigns[:path] || spams_path) do |f| %>
+    <%= f.input :message_id, :as => :hidden, input_html: { value: @message.id } %>
+    <%= render partial: "spams/form_button" %>
+  <% end %>
 <% end %>

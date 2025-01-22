@@ -7,6 +7,11 @@ class SpamsController < ApplicationController
   end
 
   def start
+    @spam = Spam.new
+  end
+
+  def status
+    @spam = Spam.new
   end
 
   def create
@@ -16,6 +21,7 @@ class SpamsController < ApplicationController
 
     if @spam.save
       # bg-job started here
+      redirect_to status_spams_path
     else
       render(
         turbo_stream: turbo_stream.replace(
