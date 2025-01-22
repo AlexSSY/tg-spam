@@ -1,5 +1,7 @@
 <div class="flex relative h-screen">
   <div class="absolute left-1/2 top-1/3 -translate-x-1/2">
-    <%= render partial: "spams/form", locals: { spam: @spam } %>
+    <%= tag.div class: "w-32 h-32 ring-2 ring-green-500 rounded-full flex items-center justify-center" do %>
+      <% tag.span "Proceed", class: "font-semibold" %>
+    <% end %>
   </div>
 </div>
