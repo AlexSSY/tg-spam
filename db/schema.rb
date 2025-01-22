@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_01_20_133052) do
+ActiveRecord::Schema[7.2].define(version: 2025_01_22_092736) do
   create_table "accounts", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.integer "user_id"
     t.text "session_data"
@@ -79,7 +79,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_20_133052) do
   create_table "spams", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.integer "user_id"
     t.integer "message_id"
-    t.integer "status"
+    t.string "status", default: "pending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
