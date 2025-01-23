@@ -28,5 +28,10 @@
       <%= render partial: "shared/menu" if user_signed_in? %>
       <%= yield %>
     </div>
+
+    <% if user_signed_in? %>
+      <%= turbo_stream_from "notifications_#{current_user.id}" %>
+      <%= turbo_frame_tag :notification %>
+    <% end %>
   </body>
 </html>

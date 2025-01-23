@@ -3,7 +3,7 @@
     <i class="fa-solid fa-bars text-xl"></i>
   </button>
   <div 
-    class="fixed left-0 top-0 w-screen h-screen bg-white px-6 pt-4 hidden"
+    class="fixed left-0 top-0 z-50 w-screen h-screen bg-white px-6 pt-4 hidden"
     data-menu-target="content"
   >
     <div class="flex justify-end">
@@ -19,7 +19,7 @@
         <%= component "nav", messages_path, "Messages" %>
       </li class="mx-8">
       <li class="text-center py-2">
-        <%= component "nav", "#", "Nav" %>
+        <%= link_to "Log Out", session_path, data: { turbo_method: :delete } %>
       </li>
     </ul>
   </div>

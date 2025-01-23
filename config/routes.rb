@@ -32,6 +32,6 @@ Rails.application.routes.draw do
   end
   resources :spams do
     get "start", to: "spams#start", as: :start, on: :member
-    get "status", to: "spams#status", as: :status, on: :collection
+    get "status", to: "spams#status", as: :status, on: :member
   end
 end

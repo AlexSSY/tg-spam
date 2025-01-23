@@ -15,6 +15,6 @@ class NavComponent < ApplicationComponent
 
   def css_class
     current_page = current_page?(url)
-    "text-sm#{' underline font-bold' if current_page}"
+    "text-xs#{' underline font-bold' if current_page}"
   end
 end

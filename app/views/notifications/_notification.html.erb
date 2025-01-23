@@ -1,0 +1,20 @@
+<% bg_color_class = notification.notification_type == "success" ? "bg-emerald-600" : "bg-rose-600" %>
+<%= turbo_frame_tag :notification do %>
+  <div 
+    class="fixed left-1/2 top-4 -translate-x-32 w-64 px-3 py-2 text-xs text-white/80 <%= bg_color_class %> rounded-xl shadow-lg z-50 opacity-0 pointer-events-none"
+    data-controller="toast"
+    data-toast-visible-value="true"
+    data-toast-text-value="<%= notification.text %>"
+    data-toast-type-value="<%= notification.notification_type %>"
+    data-toast-duration-value="3000"
+  >
+    <div class="<%= notification.notification_type %> flex items-center justify-between">
+      <div>
+        <strong class="font-semibold">
+          <%= notification.text %>
+        </strong>
+      </div>
+      <button data-action="toast#hide" class="ml-2 text-base">&times;</button>
+    </div>
+  </div>
+<% end %>
