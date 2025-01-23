@@ -14,14 +14,14 @@ class User < ApplicationRecord
 
   def notify_success(text)
     notifications.create(
-      text: "You already have a spam job.",
+      text: text,
       notification_type: "success"
     )
   end
 
   def notify_fail(text)
     notifications.create(
-      text: "You already have a spam job.",
+      text: text,
       notification_type: "error"
     )
   end
