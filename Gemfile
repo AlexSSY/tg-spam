@@ -63,7 +63,7 @@ gem "dotenv-rails", "~> 3.1"
 
 gem "pundit", "~> 2.4"
 
-gem "mini_magick", "~> 4.13"
+gem "mini_magick", "~> 5.1"
 
 gem "sidekiq", "~> 7.3"
 
