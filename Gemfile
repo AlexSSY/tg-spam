@@ -61,7 +61,7 @@ gem "httparty", "~> 0.22.0"
 
 gem "dotenv-rails", "~> 3.1"
 
-gem "pundit", "~> 2.4"
+gem "pundit", "~> 2.5"
 
 gem "mini_magick", "~> 4.13"
 
