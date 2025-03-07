@@ -65,6 +65,6 @@ gem "pundit", "~> 2.4"
 
 gem "mini_magick", "~> 4.13"
 
-gem "sidekiq", "~> 7.3"
+gem "sidekiq", "~> 8.0"
 
 gem "rack-cors", "~> 2.0"
